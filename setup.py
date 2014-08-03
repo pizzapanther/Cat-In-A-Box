@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-  name='catbox',
+  name='cat-in-a-box',
   version='14.8.1',
   author='Paul Bailey',
   author_email='paul@neutrondrive.com',
