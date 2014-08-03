@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="catBox">
   <head>
     <meta charset="utf-8">
     <title>Cat In A Box</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/img/icon-64.png">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/flexslider/flexslider.css">
+    <script src="/static/bower_components/jquery/jquery.js"></script>
+    <script src="/static/bower_components/flexslider/jquery.flexslider.js"></script>
+    <script src="/static/bower_components/angular/angular.js"></script>
+    <script src="/static/bower_components/angular-flexslider/angular-flexslider.js"></script>
+    <style>
+      #slideShow .flexslider .slides img {
+        width: 600px;
+      }
+    </style>
   </head>
   <body>
     <h1>Cat In A Box</h1>
-    
+    <div id="slideShow" ng-controller="SlideController">
+      <flex-slider slide="s in mySlides">
+        <li>
+          <img ng-src="{{! s }}">
+        </li>
+      </flex-slider>
+    </div>
+    <script>
+      var catbox = angular.module('catBox', ['angular-flexslider']);
+      catbox.controller('SlideController', function($scope) {
+        $scope.mySlides = [
+          '/static/img/cat1.jpg',
+          '/static/img/cat2.jpg',
+          '/static/img/cat3.jpg',
+          '/static/img/cat4.jpg'
+        ];
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,3 @@
+recursive-include catbox *.py
+recursive-include catbox/static *
+recursive-include catbox/templates *

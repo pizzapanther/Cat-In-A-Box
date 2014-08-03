@@ -6,11 +6,13 @@ import tornado.log
 import tornado.template
 import tornado.autoreload
 
+MYDIR = os.path.dirname(__file__)
+STATIC_PATH = os.path.join(MYDIR, "static")
+TEMPLATE_PATH = os.path.join(MYDIR, "templates")
+
 class MainHandler (tornado.web.RequestHandler):
-  def get(self):
-    mydir = os.path.dirname(__file__)
-    
-    loader = tornado.template.Loader(os.path.join(mydir, "templates"))
+  def get (self):
+    loader = tornado.template.Loader(TEMPLATE_PATH)
     t = loader.load("index.html")
     context = {}
     html = t.generate(**context)
@@ -19,6 +21,7 @@ class MainHandler (tornado.web.RequestHandler):
     
 application = tornado.web.Application([
   (r"/", MainHandler),
+  (r"/static/(.*)", tornado.web.StaticFileHandler, {'path': STATIC_PATH}),
 ])
 
 def run ():
