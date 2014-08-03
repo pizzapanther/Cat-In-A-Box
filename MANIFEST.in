@@ -1,3 +1,4 @@
-recursive-include catbox *.py
+include LICENSE
+include README.md
 recursive-include catbox/static *
 recursive-include catbox/templates *

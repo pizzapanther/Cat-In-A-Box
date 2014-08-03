@@ -20,8 +20,9 @@ class MainHandler (tornado.web.RequestHandler):
     self.write(html)
     
 application = tornado.web.Application([
-  (r"/", MainHandler),
+  (r"/favicon.ico", tornado.web.RedirectHandler, {"url": "/static/img/icon-64.png"}),
   (r"/static/(.*)", tornado.web.StaticFileHandler, {'path': STATIC_PATH}),
+  (r"/", MainHandler),
 ])
 
 def run ():

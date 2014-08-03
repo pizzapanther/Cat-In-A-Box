@@ -1,7 +1,7 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
-  name='Cat-In-A-Box',
+  name='catbox',
   version='14.8.1',
   author='Paul Bailey',
   author_email='paul@neutrondrive.com',
@@ -15,4 +15,6 @@ setup(
           "cbox = catbox.main:run",
       ],
   },
+  include_package_data = True,
+  packages = ['catbox']
 )
